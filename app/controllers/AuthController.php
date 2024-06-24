@@ -128,7 +128,7 @@ class AuthController extends Controller{
         {
             // var_dump($request->all());
             $year  = date('Y')+1;
-            $year  = $year.'-'.date('m-d');
+            $year  = $year.'-'.date('m-d H:i:s');
            
             $contract = Contract::create(
                 [
@@ -138,7 +138,7 @@ class AuthController extends Controller{
                     'total_rent'    => $request->price,
                     'terms'         => $request->term,
                     'rent_per_term' => $request->price,
-                    'start_day'     => date('Y-m-m'),
+                    'start_day'     => date('Y-m-d H:i;s'),
                     'end_day'       => $year,
                     'date_contract_sign'=>date('Y-m-d H:i:s'),
                     'status'        => "Active"
